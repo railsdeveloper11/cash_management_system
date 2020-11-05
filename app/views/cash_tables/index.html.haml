@@ -1,0 +1,25 @@
+= link_to "Add Record", new_company_cash_table_path
+
+%br
+= link_to "Back", companies_path
+%br
+%center
+  %h3 Cash Deposit
+
+.container
+
+  %table.table.table-striped
+    %thead
+      %tr
+        %th{:scope => "col"} Status
+        %th{:scope => "col"} Amount
+        %th{:scope => "col"} Total Cash
+        %th{:scope => "col"} Date 
+      -@cashtable.each do |record|
+        %tbody
+          %tr
+            %td= record.cashrecord
+            %td= record.amount
+            %td= record.total_cash
+            %td= record.created_at 
+    

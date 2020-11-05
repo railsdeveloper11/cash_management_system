@@ -1,0 +1,29 @@
+%center
+= link_to "Add company", new_company_path
+.container
+  .card-columns.card-columns2
+    .col-sm-8
+      - @companies.each do |companie|
+        .card.shadow{:style => "width: 15rem; height: auto;"}
+          .card-body
+            %h3.card-title.text-center
+              = companie.name
+            %hr/
+            %p
+              %strong country :
+              = companie.country
+            %p
+              %strong current_cash :
+              = companie.current_cash
+            %p
+              %strong initial_cash :
+              = companie.initial_cash
+            .text-center
+              = link_to "Delete Company", company_path(companie.id), :method => :delete
+              %br/
+              = link_to "Edit", edit_company_path(companie.id)
+              %br/
+              = link_to "Cash Table", company_cash_tables_path(companie.id)
+
+
+
